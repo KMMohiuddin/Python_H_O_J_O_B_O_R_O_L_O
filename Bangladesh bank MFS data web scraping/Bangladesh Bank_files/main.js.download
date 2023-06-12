@@ -1,0 +1,369 @@
+/**
+ * Created by prasun on 6/24/2018.
+ */
+(function ($) {
+    "use strict";
+    $(document).on('ready', function () {
+		var $window = $(window);
+
+		$window.on('load', function() {
+			$window.trigger("resize");
+		});
+     
+        /*====================================
+         Wow JS-Reveal Animations When You Scroll
+         ======================================*/
+        var window_width = $(window).width();
+        if (window_width > 767) {
+            new WOW().init();
+        }
+        
+
+        /*=====================================
+         Scroll Up JS-This should be first
+         ======================================*/
+        $.scrollUp({
+            scrollName: 'scrollUp',      // Element ID
+            scrollDistance: 300,         // Distance from top/bottom before showing element (px)
+            scrollFrom: 'top',           // 'top' or 'bottom'
+            scrollSpeed: 1000,            // Speed back to top (ms)
+            animation: 'fade',           // Fade, slide, none
+            animationSpeed: 200,         // Animation speed (ms)
+            scrollTrigger: false,        // Set a custom triggering element. Can be an HTML string or jQuery object
+            scrollTarget: false,         // Set a custom target element for scrolling to. Can be element or number
+            easing: 'easeInOutQuart',
+            scrollText: ["<i class='fa fa-angle-up'></i>"], // Text for element, can contain HTML
+            scrollTitle: false,          // Set a custom <a> title if required.
+            scrollImg: false,            // Set true to use image
+            activeOverlay: false,        // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            zIndex: 214748364           // Z-Index for the overlay
+        });
+
+		/* Mobile Navigation
+		 -------------------------------------------------------*/
+		var $sidenav = $('#sidenav'),
+			$mainContainer = $('#main-container'),
+			$navIconToggle = $('.nav-icon-toggle'),
+			$navHolder = $('.nav__holder'),
+			$contentOverlay = $('.content-overlay'),
+			$htmlContainer = $('html'),
+			$sidenavCloseButton = $('#sidenav__close-button');
+
+		$navIconToggle.on('click', function(e) {
+
+			e.stopPropagation();
+			$(this).toggleClass('nav-icon-toggle--is-open');
+			$sidenav.toggleClass('sidenav--is-open');
+			$contentOverlay.toggleClass('content-overlay--is-visible');
+			// $htmlContainer.toggleClass('oh');
+		});
+		function resetNav() {
+			$navIconToggle.removeClass('nav-icon-toggle--is-open');
+			$sidenav.removeClass('sidenav--is-open');
+			$contentOverlay.removeClass('content-overlay--is-visible');
+			// $htmlContainer.removeClass('oh');
+		}
+
+		function hideSidenav() {
+			if( minWidth(992) ) {
+				resetNav();
+				setTimeout( megaMenu, 500 );
+			}
+		}
+
+		$contentOverlay.on('click', function() {
+			resetNav();
+		});
+
+		$sidenavCloseButton.on('click', function() {
+			resetNav();
+		});
+		/* Sidenav Menu
+		 -------------------------------------------------------*/
+		$('.sidenav__menu-toggle').on('click', function(e) {
+			e.preventDefault();
+
+			var $this = $(this);
+
+			$this.parent().siblings().removeClass('sidenav__menu--is-open');
+			$this.parent().siblings().find('li').removeClass('sidenav__menu--is-open');
+			$this.parent().find('li').removeClass('sidenav__menu--is-open');
+			$this.parent().toggleClass('sidenav__menu--is-open');
+
+			if ($this.next().hasClass('show')) {
+				$this.next().removeClass('show').slideUp(350);
+			} else {
+				$this.parent().parent().find('li .sidenav__menu-dropdown').removeClass('show').slideUp(350);
+				$this.next().toggleClass('show').slideToggle(350);
+			}
+		});
+
+
+		/*$('.toggle-menu').click(function(){
+			$('.exo-menu').toggleClass('display');
+
+		});*/
+        /* News Ticker
+         -------------------------------------------------------*/
+        var $newsTicker = $('.recent_news_newsticker_list');
+
+        if ($newsTicker.length) {
+            $newsTicker.newsTicker({
+                row_height: 34,
+                max_rows: 1,
+                prevButton: $('#newsticker-button--prev'),
+                nextButton: $('#newsticker-button--next')
+            });
+        }
+
+
+        $('#date_picker').datepicker({
+
+            // inline mode
+            inline: false,
+
+            // additional CSS class
+            classes: '',
+
+            // language
+            language: 'en',
+
+            // start date
+            startDate: new Date(),
+
+            // first day
+            firstDay: '',
+
+            // array of day's indexes
+            weekends: [6, 0],
+
+            // custom date format
+            dateFormat: 'dd/mm/yyyy',
+
+            // Alternative text input. Use altFieldDateFormat for date formatting.
+            altField: '',
+
+            // Date format for alternative field.
+            altFieldDateFormat: '@',
+
+            // remove selection when clicking on selected cell
+            toggleSelected: true,
+
+            // keyboard navigation
+            keyboardNav: true,
+
+            // position
+            position: 'bottom left',
+            offset: 12,
+
+            // days, months or years
+            view: 'days',
+            minView: 'days',
+
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            moveToOtherMonthsOnSelect: true,
+
+            showOtherYears: true,
+            selectOtherYears: true,
+            moveToOtherYearsOnSelect: true,
+
+            minDate: '',
+            maxDate: '',
+            disableNavWhenOutOfRange: true,
+
+            multipleDates: false, // Boolean or Number
+            multipleDatesSeparator: ' - ',
+            range: true,
+
+            // display today button
+            todayButton: false,
+
+            // display clear button
+            clearButton: false,
+
+            // Event type
+            showEvent: 'focus',
+
+            // auto close after date selection
+            autoClose: false,
+
+            // navigation
+            monthsFiled: 'monthsShort',
+            prevHtml: '<svg><path d="M 17,12 l -5,5 l 5,5"></path></svg>',
+            nextHtml: '<svg><path d="M 14,12 l 5,5 l -5,5"></path></svg>',
+            navTitles: {
+                days: 'MM, <i>yyyy</i>',
+                months: 'yyyy',
+                years: 'yyyy1 - yyyy2'
+            },
+
+            // timepicker
+            timepicker: false,
+            onlyTimepicker: false,
+            dateTimeSeparator: ' ',
+            timeFormat: '',
+            minHours: 0,
+            maxHours: 24,
+            minMinutes: 0,
+            maxMinutes: 59,
+            hoursStep: 1,
+            minutesStep: 1,
+
+            // callback events
+            onSelect: '',
+            onShow: '',
+            onHide: '',
+            onChangeMonth: '',
+            onChangeYear: '',
+            onChangeDecade: '',
+            onChangeView: '',
+            onRenderCell: ''
+
+        })
+
+        // draw elips after certain character
+
+
+        $('.more').more({
+            length: 50, // Truncation length
+            leeway: 5, // Overrun allowed without truncation
+            wordBreak: false, // True to break between words, false to break anywhere
+            ignoreTags: ['br', 'hr', 'img'], // Non-terminated tags to ignore
+            toggle: true, // True to toggle, false to display and exit
+            ellipsisText: '...', // Display text for ellipsis
+           /* moreText: 'Show more', // Display text for more link
+            lessText: 'Show less',*/ // Display text for less link
+            andNext: '', // Selector for any following tags to include in the collapse
+            onChange: null // Callback function when expanded/collapsed
+        });
+
+        $('.iva-accordian').find('.tab-label').click(function () {
+
+            //Expand or collapse this panel
+            $(this).siblings().slideToggle();
+
+            //Hide the other panels
+            $(".toggle-text").not($(this).next()).slideUp();
+
+        });
+
+        $('.pagination-inner a').on('click', function() {
+            $(this).siblings().removeClass('pagination-active');
+            $(this).addClass('pagination-active');
+        });
+
+
+        $('*[data-href]').on('click', function() {
+            window.location = $(this).data("href");
+        });
+
+        var swiperOptions = {
+
+            grabCursor: true,
+            watchSlidesProgress: true,
+            mousewheelControl: true,
+            keyboardControl: true,
+
+            autoplay: {
+                delay: 30000,
+                disableOnInteraction: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+
+        };
+
+
+
+
+
+        var swiper = new Swiper(".swiper-container", swiperOptions);
+        /*$(document).ready(function () {*/
+        //initialize swiper when document ready
+       /* var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            effect:"coverflow",
+
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-container_pagination',
+                clickable: true,
+                /!*type: 'fraction',*!/
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+
+        })*/
+        /*});*/
+
+		var myDatepicker = $('#dob').datepicker().data('datepicker');
+		$('#dob').datepicker({
+			onSelect: function (fd, d, calendar) {
+				if (d.getDate() != '') {
+					myDatepicker.hide()
+				}
+			}
+		});
+
+
+			$('#sortableTable').DataTable({
+				"ordering" : true,
+				"paging" : true,
+				"fixedColumns" : true,
+				"scrollX" : false,
+				"aaSorting" : [],
+				"columnDefs" : [{
+					"targets": [2, 3],
+					"orderable": false
+				}],
+				"aoColumns": [
+					{ "sWidth": "15%" }, // 1st column width
+					{ "sWidth": "55%" }, // 2nd column width
+					{ "sWidth": "15%" }, // 3rd column width and so on
+					{ "sWidth": "15%" } // 3rd column width and so on
+				],
+
+				oLanguage: {
+					oPaginate: {
+						sNext: '<span class="pagination-default"></span><span class="pagination-fa"><i class="fa fa-chevron-right" ></i></span>',
+						sPrevious: '<span class="pagination-default"></span><span class="pagination-fa"><i class="fa fa-chevron-left" ></i></span>'
+					}
+				}
+
+            });
+            
+
+
+
+			$('#foreignVisit').DataTable({
+				"ordering" : true,
+				"paging" : true,
+				"fixedColumns" : true,
+				"scrollX" : false,
+				"aaSorting" : [],
+				oLanguage: {
+					oPaginate: {
+						sNext: '<span class="pagination-default"></span><span class="pagination-fa"><i class="fa fa-chevron-right" ></i></span>',
+						sPrevious: '<span class="pagination-default"></span><span class="pagination-fa"><i class="fa fa-chevron-left" ></i></span>'
+					}
+				}
+
+			});
+
+
+
+
+    });
+})(jQuery);

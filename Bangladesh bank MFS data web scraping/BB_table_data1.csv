@@ -1,0 +1,20 @@
+Serial no.,Description,"Amount in February, 2023","Amount in March, 2023"
+A.,Industry Wise Information,Industry Wise Information,Industry Wise Information
+1,No. of Banks currently providing the Services,13,13
+2,No. of agents,1581284,1598000
+3,No. of registered clients in Lac,1967.04,1980.93
+4,No. of active accounts in Lac*,634.95,675.20
+5,No. of total transaction,450926709.00,482455915.00
+6,Total transaction in taka(in crore BDT),97307.48,108467.23
+7,No. of daily average transaction,16104525.00,15563094.00
+8,Average daily transaction (in crore BDT),3475.27,3498.94
+B.,Product Wise Information,Amount (in crore BDT),Amount (in crore BDT)
+1,Inward Remittance,379.60,512.74
+2,Cash In transaction,29227.72,34308.10
+3,Cash Out Transaction,28086.41,30875.95
+4,P2P transaction,27521.81,31506.76
+5,Salary Disbursement (B2P),2750.48,2758.13
+6,Utility Bill Payment (P2B),1886.44,2318.09
+7,Merchant Payment,3532.25,4114.11
+8,Government Payment,2328.14,292.19
+9,Others,1594.63,1781.16

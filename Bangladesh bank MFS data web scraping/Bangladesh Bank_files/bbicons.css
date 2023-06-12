@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'bbicons';
+  src:  url('../fonts/icons/bbicons.eot?4oij5o');
+  src:  url('../fonts/icons/bbicons.eot?4oij5o#iefix') format('embedded-opentype'),
+    url('../fonts/icons/bbicons.ttf?4oij5o') format('truetype'),
+    url('../fonts/icons/bbicons.woff?4oij5o') format('woff'),
+    url('../fonts/icons/bbicons.svg?4oij5o#bbicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'bbicons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e900";
+}
+.icon-innovation:before {
+  content: "\e901";
+}
+.icon-services:before {
+  content: "\e902";
+  
+}
+.icon-media_publication:before {
+  content: "\e903";
+  
+}
+.icon-economic_data:before {
+  content: "\e904";
+  
+}
+.icon-recent_upload:before {
+  content: "\e905";
+  
+}
+.icon-investment_facility:before {
+  content: "\e906";
+  
+}
+.icon-monetary_policy:before {
+  content: "\e907";
+  
+}
+.icon-links:before {
+  content: "\e908";
+  
+}
+.icon-chevron-small-down:before {
+  content: "\e915";
+}
+.icon-chevron-small-left:before {
+  content: "\e916";
+}
+.icon-chevron-small-right:before {
+  content: "\e917";
+}
+.icon-chevron-small-up:before {
+  content: "\e918";
+}
+.icon-dots-three-horizontal:before {
+  content: "\e909";
+}
+.icon-triangle-right:before {
+  content: "\e90a";
+}
+.icon-bar-graph:before {
+  content: "\e90b";
+}
+.icon-home:before {
+  content: "\e90c";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-location-pin:before {
+  content: "\e90e";
+}
+.icon-mail:before {
+  content: "\e90f";
+}
+.icon-minus:before {
+  content: "\e910";
+}
+.icon-new-message:before {
+  content: "\e919";
+}
+.icon-plus:before {
+  content: "\e911";
+}
+.icon-facebook-with-circle:before {
+  content: "\e912";
+}
+.icon-twitter-with-circle:before {
+  content: "\e913";
+}
+.icon-youtube-with-circle:before {
+  content: "\e914";
+}
+.icon-earth:before {
+  content: "\e9ca";
+}

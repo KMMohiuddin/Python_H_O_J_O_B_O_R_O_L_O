@@ -1,0 +1,20 @@
+Serial no.,Description,"Amount in January, 2019"
+A.,Industry Wise Information,Industry Wise Information
+1,No. of Banks currently providing the Services,16
+2,No. of agents,898996
+3,No. of registered clients in Lac,672.88
+4,No. of active accounts in Lac*,334.94
+5,No. of total transaction,214617334.00
+6,Total transaction in taka(in crore BDT),34626.24
+7,No. of daily average transaction,6923139.81
+8,Average daily transaction (in crore BDT),1116.98
+B.,Product Wise Information,Amount (in crore BDT)
+1,Inward Remittance,42.03
+2,Cash In transaction,13587.33
+3,Cash Out Transaction,13260.21
+4,P2P transaction,5495.65
+5,Salary Disbursement (B2P),747.45
+6,Utility Bill Payment (P2B),273.61
+7,Merchant Payment,404.845
+8,Government Payment,288.0123
+9,Others,527.09
